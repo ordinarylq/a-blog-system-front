@@ -1,0 +1,19 @@
+<mat-toolbar color="primary" role="heading">
+    <button mat-icon-button aria-label="menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-divider [inset]="true" role="separator"></mat-divider>
+
+    <a href="#">
+        <img src="assets/logo.png" alt="logo" style="height: inherit;">
+    </a>
+    <span class="example-spacer"></span>
+
+    <a *ngFor="let category of categories; let i = index;" [href]="category.routerPath" mat-button class="nav-item">
+        <span>{{ category.categoryName }}</span>
+    </a>
+
+    <button mat-icon-button aria-label="dark mode icon">
+        <mat-icon>dark_mode</mat-icon>
+    </button>
+</mat-toolbar>
