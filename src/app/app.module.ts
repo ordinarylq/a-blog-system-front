@@ -13,6 +13,8 @@ import { ArticleItemComponent } from './content/article/article-list/article-ite
 import { ArticleDetailComponent } from './content/article/article-detail/article-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContentComponent } from './content/content.component';
+import { IndexComponent } from './content/index/index.component';
+import { FetchDataService } from './common/fetch-data.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { ContentComponent } from './content/content.component';
     ArticleListComponent,
     ArticleItemComponent,
     ArticleDetailComponent,
-    ContentComponent
+    ContentComponent,
+    IndexComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { ContentComponent } from './content/content.component';
     MaterialModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [FetchDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

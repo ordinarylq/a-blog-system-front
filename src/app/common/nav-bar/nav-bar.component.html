@@ -4,12 +4,12 @@
     </button>
     <mat-divider [inset]="true" role="separator"></mat-divider>
 
-    <a href="#">
+    <a routerLink="/">
         <img src="assets/logo.png" alt="logo" style="height: inherit;">
     </a>
     <span class="example-spacer"></span>
 
-    <a *ngFor="let category of categories; let i = index;" [href]="category.routerPath" mat-button class="nav-item">
+    <a *ngFor="let category of categories; let i = index;" [routerLink]="'article/list/' + category.id" mat-button class="nav-item">
         <span>{{ category.categoryName }}</span>
     </a>
 
