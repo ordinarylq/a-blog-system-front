@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, catchError, retry, throwError } from "rxjs";
+import { HttpResponseInterface } from "./model/http-response.interface";
 
 /**
  * 调用后端接口获取数据
@@ -19,8 +20,8 @@ export class FetchDataService {
      * 获取所有文章类型
      * @returns 文章类别Observable
      */
-    getCategoryData(): Observable<any> {
-        return this.http.get(
+    getCategoryData(): Observable<HttpResponseInterface> {
+        return this.http.get<HttpResponseInterface>(
             FetchDataService.CATEGORY_URL,
             {
                 headers: new HttpHeaders({ 'X-API-VERSION': '1' }),
@@ -36,8 +37,8 @@ export class FetchDataService {
      * @param pageSize 页面大小，默认20条
      * @returns 文章信息列表Observable
      */
-    getArticleListByCategory(id: number, pageNum = 1, pageSize = 20): Observable<any> {
-        return this.http.get(
+    getArticleListByCategory(id: number, pageNum = 1, pageSize = 20): Observable<HttpResponseInterface> {
+        return this.http.get<HttpResponseInterface>(
             FetchDataService.ARTICLE_LIST_URL + '/' + id + '/' + pageNum + '/' + pageSize,
             {
                 headers: new HttpHeaders({ 'X-API-VERSION': '1' }),

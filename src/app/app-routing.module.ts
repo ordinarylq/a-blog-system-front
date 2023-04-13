@@ -13,7 +13,6 @@ const routes: Routes = [
     children: [
       {path: 'list/:categoryId', component: ArticleListComponent},
       {path: 'detail', component: ArticleDetailComponent},
-      {path: '', redirectTo: 'article/list/0', pathMatch: 'full'}
     ]
   },
   // todo PageNotFoundComponent, SystemInternalErrorComponent?
