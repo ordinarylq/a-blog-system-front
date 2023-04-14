@@ -1,4 +1,4 @@
-.example-spacer {
+.spacer {
     flex: 1 1 auto;
 }
 
@@ -12,7 +12,15 @@ a.nav-item {
 }
 
 mat-toolbar {
-    position: sticky;
+    position: fixed;
     top: 0px;
     z-index: 2;
+
+}
+
+.logo {
+    height: 35px;
+    margin: 0;
+    top: 3px;
+    position: relative;
 }

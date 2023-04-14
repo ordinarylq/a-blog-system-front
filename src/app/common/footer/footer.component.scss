@@ -1,3 +1,4 @@
+/*
 footer {
     background-color: #2b2b2b;
     color: white;
@@ -8,7 +9,48 @@ footer {
     margin: 0;
     text-align: center;
 }
-a {
+
+a img {
+    position: relative;
+    top: 10px;
+    height: 40px;
+    display: block;
+}
+
+a[href] {
     text-decoration: none;
     color: #049ccf;
+    bottom: 0;
+}
+*/
+
+.footer {
+    padding: 16px;
+    font-size: 16px;
+    background-color: #000;
+    color: #fff;
+    display: block;
+}
+
+.footer-list {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 8px;
+}
+
+.footer-logo {
+    flex: 1;
+}
+
+img {
+    height: 50px;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
