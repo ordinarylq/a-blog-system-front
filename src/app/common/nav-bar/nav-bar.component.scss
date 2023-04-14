@@ -10,3 +10,9 @@ a.nav-item {
     text-decoration: none;
     color: inherit;
 }
+
+mat-toolbar {
+    position: sticky;
+    top: 0px;
+    z-index: 2;
+}
