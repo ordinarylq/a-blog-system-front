@@ -1,3 +1,16 @@
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+}
+.logo {
+    position: relative;
+    top: 3px;
+    height: 35px;
+}
+
 .spacer {
     flex: 1 1 auto;
 }
@@ -9,18 +22,4 @@ a{
 a.nav-item {
     text-decoration: none;
     color: inherit;
-}
-
-mat-toolbar {
-    position: fixed;
-    top: 0px;
-    z-index: 2;
-
-}
-
-.logo {
-    height: 35px;
-    margin: 0;
-    top: 3px;
-    position: relative;
 }

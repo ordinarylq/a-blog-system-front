@@ -12,8 +12,6 @@ import { HttpResponseInterface } from '../model/http-response.interface';
 })
 export class NavBarComponent implements OnInit {
 
-  static CATEGORY_URL = 'http://localhost:9898/api/categories';
-
   categories: any[] = [];
 
   constructor(private http: HttpClient, private fetchDataService: FetchDataService) { }
