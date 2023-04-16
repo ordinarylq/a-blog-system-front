@@ -2,11 +2,11 @@ import { ArticleModel } from "./article.model";
 import { CategoryModel } from "./category.model";
 
 export interface HttpResponseInterface {
-    status: number;
+    statusCode: number;
     errorCode: string;
     errorMessage: string;
     userMessage: string;
-    data: CategoryModel[] | PageInterface[]
+    data: CategoryModel[] | PageInterface[] | ArticleModel[]
 }
 
 export interface PageInterface {

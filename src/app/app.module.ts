@@ -15,6 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ContentComponent } from './content/content.component';
 import { IndexComponent } from './content/index/index.component';
 import { FetchDataService } from './common/fetch-data.service';
+import { MarkdownModule } from 'ngx-markdown';
+
+
 
 @NgModule({
   declarations: [
@@ -34,6 +37,7 @@ import { FetchDataService } from './common/fetch-data.service';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    MarkdownModule.forRoot()
   ],
   providers: [FetchDataService],
   bootstrap: [AppComponent]

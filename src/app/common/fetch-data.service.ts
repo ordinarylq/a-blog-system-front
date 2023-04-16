@@ -12,7 +12,9 @@ export class FetchDataService {
 
     static CATEGORY_URL = FetchDataService.BASE_URL + 'api/categories';
 
-    static ARTICLE_LIST_URL = FetchDataService.BASE_URL + 'api/articles'
+    static ARTICLE_LIST_URL = FetchDataService.BASE_URL + 'api/articles';
+    
+    static ARTICLE_ITEM_URL = FetchDataService.BASE_URL + 'api/article';
 
     constructor(private http: HttpClient) { }
 
@@ -40,6 +42,20 @@ export class FetchDataService {
     getArticleListByCategory(id: number, pageNum = 1, pageSize = 20): Observable<HttpResponseInterface> {
         return this.http.get<HttpResponseInterface>(
             FetchDataService.ARTICLE_LIST_URL + '/' + id + '/' + pageNum + '/' + pageSize,
+            {
+                headers: new HttpHeaders({ 'X-API-VERSION': '1' }),
+                observe: 'body',
+                responseType: 'json'
+            }).pipe(retry(3), catchError(this.handleError));
+    }
+
+    /**
+     * 根据id获取指定文章
+     * @param id 文章id
+     * @returns 文章详情
+     */
+    getArticleItemById(id: number): Observable<HttpResponseInterface> {
+        return this.http.get<HttpResponseInterface>(FetchDataService.ARTICLE_ITEM_URL + "/" + id,
             {
                 headers: new HttpHeaders({ 'X-API-VERSION': '1' }),
                 observe: 'body',

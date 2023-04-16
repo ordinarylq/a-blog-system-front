@@ -1,3 +1,9 @@
+// table view
+.table-container {
+  position: relative;
+  overflow: auto;
+}
+
 .mat-mdc-row .mat-mdc-cell {
   border-bottom: 1px solid transparent;
   border-top: 1px solid transparent;
@@ -9,29 +15,15 @@
   font-weight: bold;
 }
 
-
-/* Structure */
-.container {
-  position: relative;
-  top: 0px;
-  left: 0px;
-  margin: 0 300px;
-  padding-left: 200px;
-  padding-right: 200px;
-}
-
-.table-container {
-  position: relative;
-  overflow: auto;
-}
-
+// list view
 .article-item:hover {
   background-color: aliceblue;
   cursor: pointer;
 }
+
 .view-switch-fab {
   position: fixed;
-  right: 16px;
+  right: 30px;
   bottom: 10vh;
 }
 

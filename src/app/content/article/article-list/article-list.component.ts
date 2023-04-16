@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { mergeMap, tap } from 'rxjs';
 import { FetchDataService } from 'src/app/common/fetch-data.service';
 import { HttpResponseInterface, PageInterface } from 'src/app/common/model/http-response.interface';
@@ -23,7 +23,7 @@ export class ArticleListComponent implements OnInit {
   pageSizeOptions = [5, 10, 20];
   showTable = false;
 
-  constructor(private route: ActivatedRoute, private fetchDataService: FetchDataService) { }
+  constructor(private route: ActivatedRoute, private fetchDataService: FetchDataService, private router: Router) { }
 
   ngOnInit(): void {
     this.isLoadingResults = true;
@@ -57,6 +57,6 @@ export class ArticleListComponent implements OnInit {
   }
 
   onToArticleDetail(articleId: number) {
-    // todo 跳转到文章详情
+    this.router.navigateByUrl('/article/detail/' + articleId);
   }
 }
