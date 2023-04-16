@@ -16,11 +16,23 @@
   top: 0px;
   left: 0px;
   margin: 0 300px;
+  padding-left: 200px;
+  padding-right: 200px;
 }
 
 .table-container {
   position: relative;
   overflow: auto;
+}
+
+.article-item:hover {
+  background-color: aliceblue;
+  cursor: pointer;
+}
+.view-switch-fab {
+  position: fixed;
+  right: 16px;
+  bottom: 10vh;
 }
 
 .loading-shade {

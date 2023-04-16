@@ -3,7 +3,6 @@ import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { mergeMap, tap } from 'rxjs';
 import { FetchDataService } from 'src/app/common/fetch-data.service';
-import { ArticleModel } from 'src/app/common/model/article.model';
 import { HttpResponseInterface, PageInterface } from 'src/app/common/model/http-response.interface';
 
 @Component({
@@ -22,6 +21,7 @@ export class ArticleListComponent implements OnInit {
   pageNum = 1;
   pageSize = 20;
   pageSizeOptions = [5, 10, 20];
+  showTable = false;
 
   constructor(private route: ActivatedRoute, private fetchDataService: FetchDataService) { }
 
