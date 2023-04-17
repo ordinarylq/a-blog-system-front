@@ -1,8 +1,5 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map, retry } from 'rxjs/operators';
-import { FetchDataService } from '../fetch-data.service';
+import { FetchDataService } from '../service/fetch-data.service';
 import { HttpResponseInterface } from '../model/http-response.interface';
 
 @Component({
@@ -14,7 +11,7 @@ export class NavBarComponent implements OnInit {
 
   categories: any[] = [];
 
-  constructor(private http: HttpClient, private fetchDataService: FetchDataService) { }
+  constructor(private fetchDataService: FetchDataService) { }
 
   ngOnInit(): void {
     this.fetchDataService.getCategoryData().subscribe((data: HttpResponseInterface) => {

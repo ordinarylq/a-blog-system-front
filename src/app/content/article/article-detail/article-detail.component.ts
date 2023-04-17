@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { tap, mergeMap } from 'rxjs';
-import { FetchDataService } from 'src/app/common/fetch-data.service';
+import { FetchDataService } from 'src/app/common/service/fetch-data.service';
 import { ArticleModel } from 'src/app/common/model/article.model';
 import { HttpResponseInterface, PageInterface } from 'src/app/common/model/http-response.interface';
+import { MarkdownConverterService } from 'src/app/common/service/markdown-convert.service';
+
 
 @Component({
     selector: 'app-article-detail',
@@ -15,8 +17,10 @@ export class ArticleDetailComponent implements OnInit {
     isLoadingResults = true;
     selectedArticleId!: number;
     articleItem?: ArticleModel;
+    markedHtml!: string;
 
-    constructor(private route: ActivatedRoute, private fetchDataService: FetchDataService) { }
+    constructor(private route: ActivatedRoute, private fetchDataService: FetchDataService,
+        private markdownConverter: MarkdownConverterService) { }
 
     ngOnInit(): void {
         this.isLoadingResults = true;
@@ -27,6 +31,7 @@ export class ArticleDetailComponent implements OnInit {
             )
             .subscribe((response: HttpResponseInterface) => {
                 this.articleItem = response.data[0] as ArticleModel;
+                this.markedHtml = this.markdownConverter.parseToHtml(this.articleItem.content);
                 this.isLoadingResults = false;
             });
     }

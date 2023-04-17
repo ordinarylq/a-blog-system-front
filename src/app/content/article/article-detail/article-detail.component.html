@@ -1,6 +1,5 @@
 <div class="loading-shade" *ngIf="isLoadingResults">
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
 </div>
-<div class="article-content">
-    {{articleItem?.content | json}}
+<div class="article-content" [innerHTML]="markedHtml">
 </div>

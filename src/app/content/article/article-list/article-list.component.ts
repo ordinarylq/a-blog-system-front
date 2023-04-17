@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, Router } from '@angular/router';
 import { mergeMap, tap } from 'rxjs';
-import { FetchDataService } from 'src/app/common/fetch-data.service';
+import { FetchDataService } from 'src/app/common/service/fetch-data.service';
 import { HttpResponseInterface, PageInterface } from 'src/app/common/model/http-response.interface';
 
 @Component({

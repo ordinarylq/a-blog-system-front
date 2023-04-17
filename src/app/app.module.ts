@@ -14,9 +14,8 @@ import { ArticleDetailComponent } from './content/article/article-detail/article
 import { HttpClientModule } from '@angular/common/http';
 import { ContentComponent } from './content/content.component';
 import { IndexComponent } from './content/index/index.component';
-import { FetchDataService } from './common/fetch-data.service';
-import { MarkdownModule } from 'ngx-markdown';
-
+import { FetchDataService } from './common/service/fetch-data.service';
+import { MarkdownConverterService } from './common/service/markdown-convert.service';
 
 
 @NgModule({
@@ -36,10 +35,9 @@ import { MarkdownModule } from 'ngx-markdown';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule,
-    MarkdownModule.forRoot()
+    HttpClientModule
   ],
-  providers: [FetchDataService],
+  providers: [FetchDataService, MarkdownConverterService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

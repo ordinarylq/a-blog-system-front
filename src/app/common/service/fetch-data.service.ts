@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, catchError, retry, throwError } from "rxjs";
-import { HttpResponseInterface } from "./model/http-response.interface";
+import { HttpResponseInterface } from "../model/http-response.interface";
 
 /**
  * 调用后端接口获取数据
