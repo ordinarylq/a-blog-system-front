@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, OnInit } from "@angular/core";
 import * as showdown from "showdown";
 
 /**
@@ -6,9 +6,14 @@ import * as showdown from "showdown";
  */
 @Injectable()
 export class MarkdownConverterService {
-    converter = new showdown.Converter();
+
+    
+    converter: showdown.Converter;
+    constructor() {
+        showdown.setFlavor('github');
+        this.converter = new showdown.Converter();
+    }
     parseToHtml(text: string) {
-        this.converter.setFlavor('github');
         return this.converter.makeHtml(text);
     }
 }
