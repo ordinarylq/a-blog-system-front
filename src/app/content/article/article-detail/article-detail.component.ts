@@ -6,7 +6,6 @@ import { ArticleModel } from 'src/app/common/model/article.model';
 import { HttpResponseInterface, PageInterface } from 'src/app/common/model/http-response.interface';
 import { MarkdownConverterService } from 'src/app/common/service/markdown-convert.service';
 
-
 @Component({
     selector: 'app-article-detail',
     templateUrl: './article-detail.component.html',

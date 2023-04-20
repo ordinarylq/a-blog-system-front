@@ -27,6 +27,10 @@ Background
 - [ ] Article Manage Page
 - [ ] ...
 
+## Third Party Library
+* [showdownjs](https://github.com/showdownjs/showdown)
+* [highlightjs](https://github.com/highlightjs/highlight.js)
+* ...
 
 ## Getting Started
 Prerequsites: 

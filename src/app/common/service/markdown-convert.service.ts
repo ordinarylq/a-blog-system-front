@@ -7,7 +7,7 @@ import * as showdown from "showdown";
 @Injectable()
 export class MarkdownConverterService {
 
-    
+
     converter: showdown.Converter;
     constructor() {
         showdown.setFlavor('github');

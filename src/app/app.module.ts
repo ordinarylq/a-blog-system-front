@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +16,7 @@ import { ContentComponent } from './content/content.component';
 import { IndexComponent } from './content/index/index.component';
 import { FetchDataService } from './common/service/fetch-data.service';
 import { MarkdownConverterService } from './common/service/markdown-convert.service';
-
+import { HighlightDirective } from './common/directive/highlight.directive';
 
 @NgModule({
   declarations: [
@@ -28,16 +28,20 @@ import { MarkdownConverterService } from './common/service/markdown-convert.serv
     ArticleItemComponent,
     ArticleDetailComponent,
     ContentComponent,
-    IndexComponent
+    IndexComponent,
+    HighlightDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [FetchDataService, MarkdownConverterService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule{ 
+  
+}
