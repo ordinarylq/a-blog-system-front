@@ -13,6 +13,9 @@
 
 .flex-item.content {
     flex: 1;
+    height: 100vh;
+    position: relative;
+    background: linear-gradient(to bottom, #3f51b5 0%, #ffffff 100%);
 }
 /*
 .bg-video {

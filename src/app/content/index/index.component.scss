@@ -1,0 +1,28 @@
+.index-container {
+    color: white;
+    text-align: center;
+}
+
+.slogan-container {
+    padding-top: 5%;
+    padding-bottom: 7%;
+    display: flex;
+    flex-direction: column;
+}
+
+.slogan-sentence {
+    font-size: 2em;
+    font-weight: 600;
+    line-height: 3em;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.slogan-sentence:hover {
+    -webkit-text-stroke: 1px;
+}
+
+.github-img {
+    width: 30px;
+    margin: 0 auto;
+}
