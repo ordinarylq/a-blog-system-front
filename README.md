@@ -11,9 +11,9 @@ Foreground
 - [X] Angular development environment build
 - [X] Basic view page
 - [X] Article list page
-- [ ] Article detail page with markdown
+- [X] Article detail page with markdown
 - [ ] Index Page ( Need to think what to show though )
-- [ ] CSS Optimization and other small stuff
+- [X] CSS Optimization and other small stuff
 - [ ] Feature: Get article list from article tag 
 - [ ] Feature: Article search
 - [ ] Feature: Cache Control
@@ -30,7 +30,7 @@ Background
 ## Third Party Library
 * [showdownjs](https://github.com/showdownjs/showdown)
 * [highlightjs](https://github.com/highlightjs/highlight.js)
-* ...
+* [showdown-highlight extension](https://github.com/Bloggify/showdown-highlight)
 
 ## Getting Started
 Prerequsites: 
