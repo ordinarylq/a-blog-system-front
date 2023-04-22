@@ -4,6 +4,9 @@
     background-color: #000;
     color: #fff;
     height: 86px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .footer-list {
