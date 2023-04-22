@@ -12,12 +12,13 @@ Foreground
 - [X] Basic view page
 - [X] Article list page
 - [X] Article detail page with markdown
-- [ ] Index Page ( Need to think what to show though )
+- [X] Index Page ( Need to think what to show though )
 - [X] CSS Optimization and other small stuff
 - [ ] Feature: Get article list from article tag 
 - [ ] Feature: Article search
 - [ ] Feature: Cache Control
 - [ ] Feature: Rate Limit
+- [ ] RSS Support
 - [ ] ...
 
 
