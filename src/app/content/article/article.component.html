@@ -1,3 +1,8 @@
 <div class="container mat-elevation-z1">
-    <router-outlet></router-outlet>
+    <div class="spinner-container" *ngIf="checkIfLoading()">
+        <mat-spinner></mat-spinner>
+    </div>
+    <div class="main-content">
+        <router-outlet></router-outlet>
+    </div>
 </div>

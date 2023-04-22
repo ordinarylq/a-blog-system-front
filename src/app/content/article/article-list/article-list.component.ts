@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { mergeMap, tap } from 'rxjs';
 import { FetchDataService } from 'src/app/common/service/fetch-data.service';
 import { HttpResponseInterface, PageInterface } from 'src/app/common/model/http-response.interface';
+import { LoadingService } from 'src/app/common/service/loading.service';
 
 @Component({
   selector: 'app-article-list',
@@ -17,16 +18,16 @@ export class ArticleListComponent implements OnInit {
 
   pageItem!: PageInterface;
   resultsLength = 50;
-  isLoadingResults = true;
   pageNum = 1;
   pageSize = 20;
   pageSizeOptions = [5, 10, 20];
   showTable = false;
 
-  constructor(private route: ActivatedRoute, private fetchDataService: FetchDataService, private router: Router) { }
+  constructor(private route: ActivatedRoute, private fetchDataService: FetchDataService, 
+    private router: Router, private loadingService: LoadingService) { }
 
   ngOnInit(): void {
-    this.isLoadingResults = true;
+    this.loadingService.showLoading();
     this.route.params
       .pipe(
         tap((param: any) => this.selectedCategoryId = param.categoryId),
@@ -38,12 +39,12 @@ export class ArticleListComponent implements OnInit {
         this.pageNum = this.pageItem.current;
         this.pageSize = this.pageItem.size;
 
-        this.isLoadingResults = false;
+        this.loadingService.hideLoading();
       });
   }
 
   handlePageEvent(e: PageEvent) {
-    this.isLoadingResults = true;
+    this.loadingService.showLoading();
     this.fetchDataService.getArticleListByCategory(this.selectedCategoryId, e.pageIndex + 1, e.pageSize).subscribe(
       (response: HttpResponseInterface) => {
         this.pageItem = response.data[0] as PageInterface;
@@ -51,7 +52,7 @@ export class ArticleListComponent implements OnInit {
         this.pageNum = this.pageItem.current;
         this.pageSize = this.pageItem.size;
 
-        this.isLoadingResults = false;
+        this.loadingService.hideLoading();
       }
     );
   }

@@ -5,6 +5,7 @@ import { FetchDataService } from 'src/app/common/service/fetch-data.service';
 import { ArticleModel } from 'src/app/common/model/article.model';
 import { HttpResponseInterface, PageInterface } from 'src/app/common/model/http-response.interface';
 import { MarkdownConverterService } from 'src/app/common/service/markdown-convert.service';
+import { LoadingService } from 'src/app/common/service/loading.service';
 
 @Component({
     selector: 'app-article-detail',
@@ -19,10 +20,10 @@ export class ArticleDetailComponent implements OnInit {
     markedHtml!: string;
 
     constructor(private route: ActivatedRoute, private fetchDataService: FetchDataService,
-        private markdownConverter: MarkdownConverterService) { }
+        private markdownConverter: MarkdownConverterService, private loadingService: LoadingService) { }
 
     ngOnInit(): void {
-        this.isLoadingResults = true;
+        this.loadingService.showLoading();
         this.route.params
             .pipe(
                 tap((param: any) => this.selectedArticleId = param.articleId),
@@ -31,7 +32,7 @@ export class ArticleDetailComponent implements OnInit {
             .subscribe((response: HttpResponseInterface) => {
                 this.articleItem = response.data[0] as ArticleModel;
                 this.markedHtml = this.markdownConverter.parseToHtml(this.articleItem.content);
-                this.isLoadingResults = false;
+                this.loadingService.hideLoading();
             });
     }
 

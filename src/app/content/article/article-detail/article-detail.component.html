@@ -1,5 +1,7 @@
-<div class="loading-shade" *ngIf="isLoadingResults">
-    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
-</div>
-<div class="article-content" [innerHTML]="markedHtml">
+<div *ngIf="articleItem">
+    <div class="article-title">{{articleItem.title}}</div>
+    <div>CreatedOn: {{articleItem.createTime | date}}</div>
+    <mat-divider></mat-divider>
+    <div class="article-content" [innerHTML]="markedHtml">
+    </div>
 </div>

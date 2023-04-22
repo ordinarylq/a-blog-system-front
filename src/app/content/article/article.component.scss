@@ -2,8 +2,19 @@
     position: relative;
     top: 0px;
     left: 0px;
-    margin: 0 15%;
+    margin: 0 15%;    
+    background-color: #fff;
+}
+
+.spinner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.main-content {
     padding-left: 5%;
     padding-right: 5%;
-    background-color: #fff;
 }

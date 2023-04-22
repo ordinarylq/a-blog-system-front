@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingService } from 'src/app/common/service/loading.service';
 
 @Component({
   selector: 'app-article',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent {
+
+  constructor(private loadingService: LoadingService) {}
+
+  checkIfLoading() {
+    return this.loadingService.isLoadingResults;
+  }
 
 }
