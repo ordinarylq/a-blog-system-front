@@ -13,6 +13,8 @@ export class NavBarComponent implements OnInit {
 
   selectedStatus: boolean[] = [];
 
+  lightMode = true;
+
   constructor(private fetchDataService: FetchDataService) { }
 
   ngOnInit(): void {
