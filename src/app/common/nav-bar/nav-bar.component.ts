@@ -35,6 +35,8 @@ export class NavBarComponent implements OnInit {
 
   setSelectedClass(index: number) {
     this.selectedStatus = new Array(this.categories.length).fill(false);
-    this.selectedStatus[index] = true;
+    if(index > 0) {
+      this.selectedStatus[index] = true;
+    }
   }
 }
