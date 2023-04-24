@@ -5,7 +5,7 @@
     <mat-divider [inset]="true" role="separator"></mat-divider>
 
     <a routerLink="/" aria-label="A Blog System" (click)="setSelectedClass(-1)">
-        <img src="assets/image/logo.png" alt="logo" class="logo">
+        <img [src]=" !isDark ? 'assets/image/logo-dark.png' : 'assets/image/logo.png'" alt="logo" class="logo">
     </a>
 
     <span class="spacer"></span>
@@ -16,7 +16,7 @@
         <span>{{ category.categoryName }}</span>
     </a>
 
-    <button mat-icon-button aria-label="dark mode icon" (click)="toggleDarkTheme()">
+    <button mat-icon-button aria-label="switch theme mode icon" (click)="toggleDarkTheme()">
         <mat-icon>{{ isDark ? 'dark_mode' : 'light_mode'}}</mat-icon>
     </button>
 </mat-toolbar>

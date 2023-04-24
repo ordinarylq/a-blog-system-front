@@ -2,10 +2,13 @@ import { Injectable } from "@angular/core";
 
 
 /**
+ * 控制light和dark theme切换
+ * 
  * Credit: https://indepth.dev/tutorials/angular/angular-material-theming-system-complete-guide
  */
 @Injectable()
 export class ThemeManagerService {
+    // 初始默认为light theme
     isDark = false;
 
     toggleDarkTheme() {
@@ -48,7 +51,7 @@ function getExistingLinkElementByKey(key: string) {
 }
 
 function getClassNameForKey(key: string) {
-    return `style-manager-${key}`;
+    return `theme-manager-${key}`;
 }
 
 /**
