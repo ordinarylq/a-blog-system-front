@@ -18,7 +18,11 @@ Foreground
 - [ ] Feature: Article search
 - [ ] Feature: Cache Control
 - [ ] Feature: Rate Limit
-- [ ] RSS Support
+- [ ] Feature: RSS Support
+- [ ] Feature: Content Outline
+- [ ] Feature: Back To Top Btn
+- [ ] Feature: Theme Support
+- [ ] Feature: Light And Dark Mode Support
 - [ ] ...
 
 

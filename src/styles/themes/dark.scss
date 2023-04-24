@@ -1,0 +1,31 @@
+@use '@angular/material' as mat;
+
+$my-dark-primary: mat.define-palette(mat.$gray-palette, 800);
+$my-dark-accent: mat.define-palette(mat.$blue-gray-palette, 800);
+$my-dark-warn: mat.define-palette(mat.$orange-palette, 700);
+
+$my-dark-theme: mat.define-dark-theme(
+    (
+        color: (
+            primary: $my-dark-primary,
+            accent: $my-dark-accent,
+            warn: $my-dark-warn
+        ),
+    )
+);
+
+.dark-theme {
+    @include mat.core-color($my-dark-theme);
+    @include mat.button-color($my-dark-theme);
+    @include mat.core-color($my-dark-theme);
+    @include mat.toolbar-color($my-dark-theme);
+    @include mat.icon-color($my-dark-theme);
+    @include mat.button-color($my-dark-theme);
+    @include mat.divider-color($my-dark-theme);
+    @include mat.sidenav-color($my-dark-theme);
+    @include mat.table-color($my-dark-theme);
+    @include mat.progress-spinner-color($my-dark-theme);
+    @include mat.paginator-color($my-dark-theme);
+    @include mat.list-color($my-dark-theme);
+    @include mat.tooltip-color($my-dark-theme);
+}

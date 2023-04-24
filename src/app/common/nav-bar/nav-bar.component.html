@@ -16,8 +16,7 @@
         <span>{{ category.categoryName }}</span>
     </a>
 
-    <button mat-icon-button aria-label="dark mode icon" (click)="lightMode = !lightMode">
-        <mat-icon *ngIf="lightMode">dark_mode</mat-icon>
-        <mat-icon *ngIf="!lightMode">light_mode</mat-icon>
+    <button mat-icon-button aria-label="dark mode icon" (click)="toggleDarkTheme()">
+        <mat-icon>{{ isDark ? 'dark_mode' : 'light_mode'}}</mat-icon>
     </button>
 </mat-toolbar>

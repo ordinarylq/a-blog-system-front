@@ -1,7 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+@use 'styles/themes/light';
+@include mat.core();
 
-html, body { height: 100%; }
-body { margin: 0; font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+// default light theme
+@include mat.core-theme(light.$my-light-theme);
+@include mat.toolbar-theme(light.$my-light-theme);
+@include mat.icon-theme(light.$my-light-theme);
+@include mat.button-theme(light.$my-light-theme);
+@include mat.divider-theme(light.$my-light-theme);
+@include mat.sidenav-theme(light.$my-light-theme);
+@include mat.table-theme(light.$my-light-theme);
+@include mat.progress-spinner-theme(light.$my-light-theme);
+@include mat.paginator-theme(light.$my-light-theme);
+@include mat.list-theme(light.$my-light-theme);
+@include mat.tooltip-theme(light.$my-light-theme);
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    //font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+
+
+
+
 
 // inline code
 code {
@@ -47,4 +76,5 @@ tr {
 tr:nth-child(2n) {
     background-color: #f6f8fa;
 }
+
 // end
