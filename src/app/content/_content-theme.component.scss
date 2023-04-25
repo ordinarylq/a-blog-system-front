@@ -6,25 +6,16 @@
     $color-config: mat.get-color-config($theme);
     // 获取primary pallete
     $primary-pallete: map.get($color-config, 'primary');
+    $accent-pallete: map.get($color-config, 'accent');
 
-    .footer {
-        background-color: mat.get-color-from-palette($primary-pallete, 'default');
-        color: mat.get-color-from-palette($primary-pallete, 'default-contrast');
-    }
-
-    .footer-copyright a{
-        color: mat.get-color-from-palette($primary-pallete, 'default-contrast');
+    .flex-container .content {
+        background: linear-gradient(to bottom, mat.get-color-from-palette($primary-pallete, 'default') 0%, 
+        mat.get-color-from-palette($accent-pallete, 'lighter') 100%);
     }
 
 }
 
-@mixin typography($theme) {
-    $typography-config: mat.get-typography-config($theme);
-
-    .footer {
-        @include mat.typography-level($typography-config, 'body-1');
-    }
-}
+@mixin typography($theme) {}
 
 @mixin theme($theme) {
     $color-config: mat.get-color-config($theme);

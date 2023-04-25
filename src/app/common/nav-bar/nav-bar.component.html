@@ -16,7 +16,8 @@
         <span>{{ category.categoryName }}</span>
     </a>
 
-    <button mat-icon-button aria-label="switch theme mode icon" (click)="toggleDarkTheme()">
-        <mat-icon>{{ isDark ? 'dark_mode' : 'light_mode'}}</mat-icon>
+    <button mat-icon-button aria-label="switch theme mode icon" (click)="toggleDarkTheme()" 
+    [title]=" isDark ? 'Switch to light mode' : 'Switch to dark mode' ">
+        <mat-icon>{{ isDark ? 'light_mode' : 'dark_mode'}}</mat-icon>
     </button>
 </mat-toolbar>

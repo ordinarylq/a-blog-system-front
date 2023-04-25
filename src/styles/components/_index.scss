@@ -1,7 +1,9 @@
 @use "../../app/common/nav-bar/nav-bar-theme.component" as nav-bar;
 @use "../../app/common/footer/footer-theme.component" as footer;
+@use "../../app/content/content-theme.component" as content;
 
 @mixin theme($theme) {
     @include nav-bar.theme($theme);
     @include footer.theme($theme);
+    @include content.theme($theme);
 }
