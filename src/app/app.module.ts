@@ -9,7 +9,6 @@ import { MaterialModule } from './material.module';
 import { FooterComponent } from './common/footer/footer.component';
 import { ArticleComponent } from './content/article/article.component';
 import { ArticleListComponent } from './content/article/article-list/article-list.component';
-import { ArticleItemComponent } from './content/article/article-list/article-item/article-item.component';
 import { ArticleDetailComponent } from './content/article/article-detail/article-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ContentComponent } from './content/content.component';
@@ -27,7 +26,6 @@ import { ThemeManagerService } from './common/service/theme-manager.service';
     FooterComponent,
     ArticleComponent,
     ArticleListComponent,
-    ArticleItemComponent,
     ArticleDetailComponent,
     ContentComponent,
     IndexComponent,

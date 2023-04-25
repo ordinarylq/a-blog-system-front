@@ -1,4 +1,5 @@
 @use '@angular/material' as mat;
+@use '../components';
 
 $my-dark-primary: mat.define-palette(mat.$gray-palette, 800);
 $my-dark-accent: mat.define-palette(mat.$blue-gray-palette, 800);
@@ -28,4 +29,6 @@ $my-dark-theme: mat.define-dark-theme(
     @include mat.paginator-color($my-dark-theme);
     @include mat.list-color($my-dark-theme);
     @include mat.tooltip-color($my-dark-theme);
+    @include mat.strong-focus-indicators-theme($my-dark-theme);
+    @include components.theme($my-dark-theme);
 }

@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @use '@angular/material' as mat;
 @use 'styles/themes/light';
+@use 'styles/components';
 @include mat.core();
+@include mat.strong-focus-indicators();
 
 // default light theme
 @include mat.core-theme(light.$my-light-theme);
@@ -15,6 +17,8 @@
 @include mat.paginator-theme(light.$my-light-theme);
 @include mat.list-theme(light.$my-light-theme);
 @include mat.tooltip-theme(light.$my-light-theme);
+@include mat.strong-focus-indicators-theme(light.$my-light-theme);
+@include components.theme(light.$my-light-theme);
 
 html,
 body {

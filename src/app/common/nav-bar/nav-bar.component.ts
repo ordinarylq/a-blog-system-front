@@ -19,7 +19,11 @@ export class NavBarComponent implements OnInit {
   constructor(
     private fetchDataService: FetchDataService,
     private themeManager: ThemeManagerService
-  ) { }
+  ) { 
+    this.themeManager.isDarkChange.subscribe(value => {
+      this.isDark = value;
+    });
+  }
 
   ngOnInit(): void {
     this.fetchDataService.getCategoryData().subscribe((data: HttpResponseInterface) => {
@@ -39,7 +43,6 @@ export class NavBarComponent implements OnInit {
 
   toggleDarkTheme() {
     this.themeManager.toggleDarkTheme();
-    this.isDark = !this.isDark;
   }
 
   setSelectedClass(index: number) {

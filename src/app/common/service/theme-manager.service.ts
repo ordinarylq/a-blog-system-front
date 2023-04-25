@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 
 
 /**
@@ -10,17 +10,20 @@ import { Injectable } from "@angular/core";
 export class ThemeManagerService {
     // 初始默认为light theme
     isDark = false;
+    isDarkChange = new EventEmitter<boolean>();
 
     toggleDarkTheme() {
         if (this.isDark) {
             this.removeStyle('dark-theme');
             document.body.classList.remove('dark-theme');
             this.isDark = false;
+            this.isDarkChange.emit(this.isDark);
         } else {
             const href = 'dark-theme.css';
             getLinkElementForKey('dark-theme').setAttribute('href', href);
             document.body.classList.add('dark-theme');
             this.isDark = true;
+            this.isDarkChange.emit(this.isDark);
         }
     }
 

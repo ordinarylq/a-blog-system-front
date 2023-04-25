@@ -1,0 +1,37 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+    // 获取theme的color config
+    $color-config: mat.get-color-config($theme);
+    // 获取primary pallete
+    $primary-pallete: map.get($color-config, 'primary');
+
+    a.nav-item {
+        color: mat.get-color-from-palette($primary-pallete, 'default-contrast');
+    }
+    
+    a.nav-item-selected {
+        background-color: mat.get-color-from-palette($primary-pallete, 'darker');
+    }
+}
+
+@mixin typography($theme) {
+    $typography-config: mat.get-typography-config($theme);
+
+    a.nav-item {
+        @include mat.typography-level($typography-config, 'button');
+    }
+}
+
+@mixin theme($theme) {
+    $color-config: mat.get-color-config($theme);
+    @if $color-config != null {
+        @include color($theme);
+    }
+
+    $typography-config: mat.get-typography-config($theme);
+    @if $typography-config != null {
+        @include typography($theme);
+    }
+}
