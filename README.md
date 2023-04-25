@@ -22,7 +22,7 @@ Foreground
 - [ ] Feature: Content Outline
 - [ ] Feature: Back To Top Btn
 - [ ] Feature: Theme Support
-- [ ] Feature: Light And Dark Mode Support
+- [X] Feature: Light And Dark Mode Support
 - [ ] ...
 
 
