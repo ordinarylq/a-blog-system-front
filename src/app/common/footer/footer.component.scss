@@ -1,9 +1,5 @@
 .footer {
     padding: 16px;
-    font-size: 16px;
-    background-color: #000;
-    color: #fff;
-    height: 86px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,11 +19,10 @@
 img {
     height: 50px;
 }
-a{
+.footer-copyright a{
     text-decoration: none;
-    color: inherit;
 }
-a:hover {
+.footer-copyright a:hover {
     text-decoration: underline;
     cursor: pointer;
 }
