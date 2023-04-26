@@ -3,14 +3,11 @@
 }
 
 .slogan-container {
-    padding-top: 5%;
-    padding-bottom: 7%;
+    padding-top: 7%;
+    padding-bottom: 10%;
     display: flex;
     flex-direction: column;
-}
-
-.slogan-sentence {
-    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+    align-items: center;
 }
 
 .slogan-sentence:hover {
@@ -18,21 +15,15 @@
 }
 
 // github button
-.github-link-container {
-    // width: 100px;
-    // margin: 0 auto;
-    // border-radius: 5px;
-}
-
-.github-link-container a {
+.github-button {
     text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+    padding: 5px;
 
-.github-link-container a:hover {
-    // border-radius: 5px;
+    .github-button-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 .github-btn-img {

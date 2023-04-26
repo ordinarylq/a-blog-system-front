@@ -1,38 +1,16 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
 
-@mixin color($theme) {
-
-    $color-config: mat.get-color-config($theme);
-    $primary-pallete: map.get($color-config, 'primary');
-    $accent-pallete: map.get($color-config, 'accent');
-
-    // .index-container {
-    //     color: mat.get-color-from-palette($primary-pallete, 'default-constrast');
-    // }
-
-    // .index-container .github-link-container {
-    //     background-color: mat.get-color-from-palette($primary-pallete, 'default');
-    // }
-
-    // .index-container .github-link-container a .github-btn-text { 
-    //     color: mat.get-color-from-palette($primary-pallete, 'constrast');
-    // }
-
-    // .index-container .github-link-container a:hover {
-    //     background-color: mat.get-color-from-palette($primary-pallete, 'darker');
-    // }
-}
+@mixin color($theme) {}
 
 @mixin typography($theme) {
-    $typography-config: mat.get-typography-config($theme);
-
+    // TODO: Add typography support
+    // using typography does not work.
     .slogan-sentence {
-        // font-size: 2em;
-        // font-weight: 600;
-        // line-height: 3em;
-        // font-family: 'Poppins', sans-serif;
-        //@include mat.typography-level($typography-config, 'headline-1');
+        line-height: 3em;
+        font-size: large;
+        font-family: 'Poppins', sans-serif;
+        width: auto;
     }
 }
 
