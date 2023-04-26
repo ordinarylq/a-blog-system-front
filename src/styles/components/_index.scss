@@ -2,10 +2,12 @@
 @use "../../app/common/footer/footer-theme.component" as footer;
 @use "../../app/content/content-theme.component" as content;
 @use "../../app/content/index/index-theme.component" as index;
+@use "../../app/content/article/article-theme.component" as article;
 
 @mixin theme($theme) {
     @include nav-bar.theme($theme);
     @include footer.theme($theme);
     @include content.theme($theme);
     @include index.theme($theme);
+    @include article.theme($theme);
 }

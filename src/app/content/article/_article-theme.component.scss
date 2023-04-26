@@ -1,7 +1,19 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
 
-@mixin color($theme) {}
+@mixin color($theme) {
+    $color-config: mat.get-color-config($theme);
+    $primary-pallete: map.get($color-config, 'primary');
+
+    .container {
+        background-color: mat.get-color-from-palette($primary-pallete, 'lighter');
+    }
+    
+    $primary-100-color: mat.get-color-from-palette($primary-pallete, 100);
+    .spinner-container {
+        background: rgba($primary-100-color, 0.15);
+    }
+}
 
 @mixin typography($theme) {}
 
