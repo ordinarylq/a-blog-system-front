@@ -1,0 +1,34 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+
+@mixin color($theme) {
+    $color-config: mat.get-color-config($theme);
+    $primary-pallete: map.get($color-config, 'primary');
+
+    code {
+        background-color: mat.get-color-from-palette($primary-pallete, 'default');
+        color: #EB5757;
+    }
+}
+
+@mixin typography($theme) {
+    $typography-config: mat.get-typography-config($theme);
+
+    code {
+        font-size: 14px;
+        font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    }
+}
+
+@mixin theme($theme) {
+    $color-config: mat.get-color-config($theme);
+    @if $color-config != null {
+        @include color($theme);
+    }
+
+    $typography-config: mat.get-typography-config($theme);
+    @if $typography-config != null {
+        @include typography($theme);
+    }
+}

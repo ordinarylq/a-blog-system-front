@@ -1,6 +1,7 @@
 <div *ngIf="articleItem">
     <div class="article-title">{{articleItem.title}}</div>
-    <div>CreatedOn: {{articleItem.createTime | date}}</div>
+    <div class="article-subtitle">{{articleItem.subtitle}}</div>
+    <div class="article-info">CreatedOn: {{articleItem.createTime | date}}</div>
     <mat-divider></mat-divider>
     <div class="article-content" [innerHTML]="markedHtml">
     </div>

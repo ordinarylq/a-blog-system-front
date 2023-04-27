@@ -1,9 +1,34 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
 
-@mixin color($theme) {}
+@mixin color($theme) {
+    $color-config: mat.get-color-config($theme);
+    $primary-pallete: map.get($color-config, 'primary');
 
-@mixin typography($theme) {}
+    .article-content a {
+        color: mat.get-color-from-palette($primary-pallete, 'default');
+    }
+}
+
+@mixin typography($theme) {
+    $typography-config: mat.get-typography-config($theme);
+
+    .article-title {
+        @include mat.typography-level($typography-config, 'headline-3');
+    }
+
+    .article-subtitle {
+        @include mat.typography-level($typography-config, 'headline-6');
+    }
+
+    .article-info {
+        @include mat.typography-level($typography-config, 'caption');
+    }
+
+    .article-content {
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+    }
+}
 
 @mixin theme($theme) {
     $color-config: mat.get-color-config($theme);
