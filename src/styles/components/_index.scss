@@ -3,6 +3,8 @@
 @use "../../app/content/content-theme.component" as content;
 @use "../../app/content/index/index-theme.component" as index;
 @use "../../app/content/article/article-theme.component" as article;
+@use "../../app/content/article/article-list/article-list-theme.component" as article-list;
+@use "./overlay-container" as overlay-container;
 
 @mixin theme($theme) {
     @include nav-bar.theme($theme);
@@ -10,4 +12,6 @@
     @include content.theme($theme);
     @include index.theme($theme);
     @include article.theme($theme);
+    @include article-list.theme($theme);
+    @include overlay-container.theme($theme);
 }

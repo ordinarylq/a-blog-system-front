@@ -1,7 +1,71 @@
 @use 'sass:map';
 @use '@angular/material' as mat;
 
-@mixin color($theme) {}
+@mixin color($theme) {
+    $color-config: mat.get-color-config($theme);
+    $primary-pallete: map.get($color-config, 'primary');
+    $accent-pallete: map.get($color-config, 'accent');
+
+    // table
+    .mat-mdc-row:hover .mat-mdc-cell {
+        @if map.get($color-config, 'is-dark') {
+            background-color: mat.get-color-from-palette($accent-pallete, 900);
+            color: mat.get-color-from-palette($accent-pallete, '900-contrast');
+        } @else {
+            background-color: mat.get-color-from-palette($accent-pallete, 100);
+            color: mat.get-color-from-palette($accent-pallete, '100-contrast');
+        }
+        
+    }
+
+    .table-container .table {
+        @if map.get($color-config, 'is-dark') {
+            background: mat.get-color-from-palette($primary-pallete, 'darker');
+            color: mat.get-color-from-palette($primary-pallete, 'darker-contrast');
+        } @else {
+            background: mat.get-color-from-palette($primary-pallete, 'lighter');
+            color: mat.get-color-from-palette($primary-pallete, 'lighter-contrast');
+        }
+        
+    }
+
+    // list
+    .article-list .article-item {
+        @if map.get($color-config, 'is-dark') {
+            background-color: mat.get-color-from-palette($primary-pallete, 'darker');
+            color: mat.get-color-from-palette($primary-pallete, 'darker-contrast');
+        } @else {
+            background-color: mat.get-color-from-palette($primary-pallete, 'lighter');
+            color: mat.get-color-from-palette($primary-pallete, 'lighter-contrast');
+        }
+    }
+
+    .article-list .article-item:hover {
+        @if map.get($color-config, 'is-dark') {
+            background-color: mat.get-color-from-palette($accent-pallete, 900);
+            color: mat.get-color-from-palette($accent-pallete, '900-contrast');
+        } @else {
+            background-color: mat.get-color-from-palette($accent-pallete, 100);
+            color: mat.get-color-from-palette($accent-pallete, '100-contrast');
+        }
+        
+    }
+    // list subtitle & create time
+    .article-list .article-item .subline {
+        @if map.get($color-config, 'is-dark') {
+            color: mat.get-color-from-palette($primary-pallete, 'darker-contrast');
+        } @else {
+            color: mat.get-color-from-palette($primary-pallete, 'lighter-contrast');
+        }
+    }
+    .article-paginator {
+        @if map.get($color-config, 'is-dark') {
+            background-color: mat.get-color-from-palette($primary-pallete, 'darker');
+        } @else {
+            background-color: mat.get-color-from-palette($primary-pallete, 'lighter');
+        }
+    }
+}
 
 @mixin typography($theme) {}
 

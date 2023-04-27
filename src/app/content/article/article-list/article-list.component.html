@@ -38,8 +38,8 @@
         class="article-item">
         <mat-icon matListItemIcon>article</mat-icon>
         <div matListItemTitle> {{articleItem.title}} </div>
-        <div matListItemLine> {{articleItem.subtitle}} </div>
-        <div matListItemLine>
+        <div matListItemLine class="subline"> {{articleItem.subtitle}} </div>
+        <div matListItemLine class="subline">
             Create Time: {{articleItem.createTime | date}}
         </div>
         <mat-divider [inset]="true" *ngIf="!last"></mat-divider>
@@ -48,7 +48,8 @@
     <mat-divider></mat-divider>
 </mat-list>
 <mat-paginator *ngIf="pageItem" [length]="resultsLength" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
-    (page)="handlePageEvent($event)" showFirstLastButtons aria-label="Select page of articles"></mat-paginator>
+    (page)="handlePageEvent($event)" showFirstLastButtons aria-label="Select page of articles" 
+    class="article-paginator"></mat-paginator>
 <button mat-fab color="primary" aria-label="a switch icon" (click)="showTable = !showTable" class="view-switch-fab"
     matTooltip="switch view">
     <mat-icon *ngIf="!showTable">table_view</mat-icon>
