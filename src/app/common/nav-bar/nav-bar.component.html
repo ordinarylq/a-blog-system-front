@@ -5,7 +5,7 @@
     <mat-divider [inset]="true" role="separator"></mat-divider>
 
     <a routerLink="/" aria-label="A Blog System">
-        <img [src]=" !isDark ? 'assets/image/logo-dark.png' : 'assets/image/logo.png'" alt="logo" class="logo">
+        <img [src]=" !isDark ? 'assets/image/logo-dark.png' : 'assets/image/logo.png'" alt="logo" class="logo" (click)="selectedNoneCategory()">
     </a>
 
     <span class="spacer"></span>

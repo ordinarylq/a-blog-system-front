@@ -20,7 +20,7 @@ export class FooterComponent implements OnInit, OnDestroy {
   }
   ngOnInit(): void {
     if(this.storageService.select(StorageService.themeModeKey)) {
-      this.isDark = Boolean(this.storageService.select(StorageService.themeModeKey));
+      this.isDark = JSON.parse(this.storageService.select(StorageService.themeModeKey)!);
     }
   }
 

@@ -1,4 +1,4 @@
-import { NgModule, OnInit } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,7 @@ import { HighlightDirective } from './common/directive/highlight.directive';
 import { LoadingService } from './common/service/loading.service';
 import { ThemeManagerService } from './common/service/theme-manager.service';
 import { StorageService } from './common/service/storage.service';
+import { Observable } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -40,9 +41,21 @@ import { StorageService } from './common/service/storage.service';
     HttpClientModule,
     
   ],
-  providers: [FetchDataService, MarkdownConverterService, LoadingService, ThemeManagerService, StorageService],
+  providers: [FetchDataService, MarkdownConverterService, LoadingService, ThemeManagerService, StorageService, 
+    {
+      provide: APP_INITIALIZER,
+      useFactory: loadTheme,
+      deps: [ThemeManagerService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule{ 
   
+}
+
+// 根据isDark情况决定当前要加载的模式
+function loadTheme(themeManager: ThemeManagerService): () => Observable<void> {
+  return () => themeManager.setStoragedTheme();
 }

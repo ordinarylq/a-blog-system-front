@@ -1,5 +1,6 @@
 import { EventEmitter, Injectable } from "@angular/core";
 import { StorageService } from "./storage.service";
+import { Observable } from "rxjs";
 
 /**
  * theme管理
@@ -43,6 +44,19 @@ export class ThemeManagerService {
         } else {
             this.setDarkMode();
         }
+    }
+
+    /**
+     * 页面初始化时设置theme, 避免flashing
+     */
+    setStoragedTheme(): Observable<void> {
+        return new Observable(observer => {
+            if(this.storageService.select(StorageService.themeModeKey)) {
+                let storagedTheme = JSON.parse(this.storageService.select(StorageService.themeModeKey)!);
+                this.setTheme(storagedTheme); 
+            }
+            observer.complete();
+        });
     }
 
     /**
