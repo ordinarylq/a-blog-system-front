@@ -38,7 +38,7 @@ export class NavBarComponent implements OnInit {
       this.categories = data.data.slice();
     })
     if(this.storageService.select(StorageService.themeModeKey)) {
-      this.isDark = Boolean(this.storageService.select(StorageService.themeModeKey));
+      this.isDark = JSON.parse(this.storageService.select(StorageService.themeModeKey)!);
     }
     // 根据isDark情况决定当前要加载的模式
     this.themeManager.setTheme(this.isDark);
