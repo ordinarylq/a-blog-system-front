@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from "@angular/common/http
 import { Injectable } from "@angular/core";
 import { Observable, catchError, retry, throwError } from "rxjs";
 import { HttpResponseInterface } from "../model/http-response.interface";
+import { StorageService } from "./storage.service";
 
 /**
  * 调用后端接口获取数据
@@ -16,7 +17,7 @@ export class FetchDataService {
     
     static ARTICLE_ITEM_URL = FetchDataService.BASE_URL + 'api/article';
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private storageService: StorageService) { }
 
     /**
      * 获取所有文章类型
@@ -40,6 +41,7 @@ export class FetchDataService {
      * @returns 文章信息列表Observable
      */
     getArticleListByCategory(id: number, pageNum = 1, pageSize = 20): Observable<HttpResponseInterface> {
+        this.storageService.store(StorageService.selectedCategoryKey, id);
         return this.http.get<HttpResponseInterface>(
             FetchDataService.ARTICLE_LIST_URL + '/' + id + '/' + pageNum + '/' + pageSize,
             {

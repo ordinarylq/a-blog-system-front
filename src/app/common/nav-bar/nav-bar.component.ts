@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FetchDataService } from '../service/fetch-data.service';
 import { HttpResponseInterface } from '../model/http-response.interface';
 import { ThemeManagerService } from '../service/theme-manager.service';
+import { StorageService } from '../service/storage.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -14,41 +15,36 @@ export class NavBarComponent implements OnInit {
 
   selectedStatus: boolean[] = [];
 
-  isDark = this.themeManager.isDark;
+  selectedCategoryIndex: number = -1;
+
+  isDark = false;
 
   constructor(
     private fetchDataService: FetchDataService,
-    private themeManager: ThemeManagerService
+    private themeManager: ThemeManagerService,
+    private storageService: StorageService
   ) { 
-    this.themeManager.isDarkChange.subscribe(value => {
-      this.isDark = value;
+    this.storageService.changes.subscribe((change: {key: string;value: any;}) => {
+      if(StorageService.selectedCategoryKey === change.key) {
+        this.selectedCategoryIndex = Number(change.value);
+      } else if(StorageService.themeModeKey === change.key) {
+        this.isDark = Boolean(change.value);
+      }
     });
   }
 
   ngOnInit(): void {
     this.fetchDataService.getCategoryData().subscribe((data: HttpResponseInterface) => {
       this.categories = data.data.slice();
-      this.selectedStatus = new Array(this.categories.length).fill(false);
-
-      // 如果用户直接修改浏览器url, 需要根据类型id给指定导航按钮设置为selected
-      let currentUrl = window.location.href;
-      let categoryId: number = Number(currentUrl.slice(currentUrl.lastIndexOf('/') + 1, currentUrl.length));
-      console.log(categoryId);
-      if (categoryId > 0 && categoryId <= this.categories.length) {
-        this.selectedStatus[categoryId - 1] = true;
-      }
-
     })
+    if(this.storageService.select(StorageService.themeModeKey)) {
+      this.isDark = Boolean(this.storageService.select(StorageService.themeModeKey));
+    }
+    // 根据isDark情况决定当前要加载的模式
+    this.themeManager.setTheme(this.isDark);
   }
 
   toggleDarkTheme() {
     this.themeManager.toggleDarkTheme();
-  }
-
-  setSelectedClass(index: number) {
-    this.selectedStatus = new Array(this.categories.length).fill(false);
-    if (index >= 0) {
-      this.selectedStatus[index] = true;
-    }
   }
 }

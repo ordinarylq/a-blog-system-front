@@ -1,30 +1,65 @@
 import { EventEmitter, Injectable } from "@angular/core";
-
+import { StorageService } from "./storage.service";
 
 /**
+ * theme管理
  * 控制light和dark theme切换
  * 
  * Credit: https://indepth.dev/tutorials/angular/angular-material-theming-system-complete-guide
  */
 @Injectable()
 export class ThemeManagerService {
-    // 初始默认为light theme
+    // flase-light true-dark
     isDark = false;
-    isDarkChange = new EventEmitter<boolean>();
 
+    constructor(private storageService: StorageService) {
+        this.storageService.changes.subscribe((change: {key: string;value: any;}) => {
+            if(StorageService.themeModeKey === change.key) {
+                this.isDark = Boolean(change.value);
+            }
+          })
+    }
+
+    /**
+     * 切换模式
+     */
     toggleDarkTheme() {
         if (this.isDark) {
-            this.removeStyle('dark-theme');
-            document.body.classList.remove('dark-theme');
-            this.isDark = false;
-            this.isDarkChange.emit(this.isDark);
+            this.setLightMode();
+            this.storageService.store(StorageService.themeModeKey, false);
         } else {
-            const href = 'dark-theme.css';
-            getLinkElementForKey('dark-theme').setAttribute('href', href);
-            document.body.classList.add('dark-theme');
-            this.isDark = true;
-            this.isDarkChange.emit(this.isDark);
+            this.setDarkMode();
+            this.storageService.store(StorageService.themeModeKey, true);
         }
+    }
+
+    /**
+     * 根据status决定加载何种模式
+     * @param status false-表示加载Light mode true-表示加载dark mode
+     */
+    setTheme(status: boolean) {
+        if(!status) {
+            this.setLightMode();
+        } else {
+            this.setDarkMode();
+        }
+    }
+
+    /**
+     * 设置为light mode
+     */
+    private setLightMode() {
+        this.removeStyle('dark-theme');
+        document.body.classList.remove('dark-theme');
+    }
+
+    /**
+     * 设置为dark mode
+     */
+    private setDarkMode() {
+        const href = 'dark-theme.css';
+        getLinkElementForKey('dark-theme').setAttribute('href', href);
+        document.body.classList.add('dark-theme');
     }
 
     /**

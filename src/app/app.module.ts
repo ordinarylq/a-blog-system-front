@@ -18,6 +18,7 @@ import { MarkdownConverterService } from './common/service/markdown-convert.serv
 import { HighlightDirective } from './common/directive/highlight.directive';
 import { LoadingService } from './common/service/loading.service';
 import { ThemeManagerService } from './common/service/theme-manager.service';
+import { StorageService } from './common/service/storage.service';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { ThemeManagerService } from './common/service/theme-manager.service';
     HttpClientModule,
     
   ],
-  providers: [FetchDataService, MarkdownConverterService, LoadingService, ThemeManagerService],
+  providers: [FetchDataService, MarkdownConverterService, LoadingService, ThemeManagerService, StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule{ 

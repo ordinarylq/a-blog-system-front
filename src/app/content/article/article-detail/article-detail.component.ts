@@ -6,6 +6,7 @@ import { ArticleModel } from 'src/app/common/model/article.model';
 import { HttpResponseInterface, PageInterface } from 'src/app/common/model/http-response.interface';
 import { MarkdownConverterService } from 'src/app/common/service/markdown-convert.service';
 import { LoadingService } from 'src/app/common/service/loading.service';
+import { StorageService } from 'src/app/common/service/storage.service';
 
 @Component({
     selector: 'app-article-detail',
@@ -20,7 +21,7 @@ export class ArticleDetailComponent implements OnInit {
     markedHtml!: string;
 
     constructor(private route: ActivatedRoute, private fetchDataService: FetchDataService,
-        private markdownConverter: MarkdownConverterService, private loadingService: LoadingService) { }
+        private markdownConverter: MarkdownConverterService, private loadingService: LoadingService, private storageService: StorageService) { }
 
     ngOnInit(): void {
         this.loadingService.showLoading();
@@ -32,6 +33,7 @@ export class ArticleDetailComponent implements OnInit {
             .subscribe((response: HttpResponseInterface) => {
                 this.articleItem = response.data[0] as ArticleModel;
                 this.markedHtml = this.markdownConverter.parseToHtml(this.articleItem.content);
+                this.storageService.store(StorageService.selectedCategoryKey, this.articleItem.category.id);
                 this.loadingService.hideLoading();
             });
     }

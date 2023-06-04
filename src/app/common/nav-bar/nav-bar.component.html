@@ -4,7 +4,7 @@
     </button>
     <mat-divider [inset]="true" role="separator"></mat-divider>
 
-    <a routerLink="/" aria-label="A Blog System" (click)="setSelectedClass(-1)">
+    <a routerLink="/" aria-label="A Blog System">
         <img [src]=" !isDark ? 'assets/image/logo-dark.png' : 'assets/image/logo.png'" alt="logo" class="logo">
     </a>
 
@@ -12,7 +12,7 @@
 
     <a *ngFor="let category of categories; let i = index;" 
     [routerLink]="'article/list/' + category.id" mat-button class="nav-item"
-    (click)="setSelectedClass(i)" [ngClass]="{'nav-item-selected': this.selectedStatus[i]}">
+    [ngClass]="{'nav-item-selected': selectedCategoryIndex === category.id}">
         <span>{{ category.categoryName }}</span>
     </a>
 
