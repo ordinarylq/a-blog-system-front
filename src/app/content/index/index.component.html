@@ -7,7 +7,8 @@
     <a class="github-button" mat-raised-button href="https://github.com/ordinarylq" target="_blank"
         matTooltip="Find me on Github" color="accent">
         <div class="github-button-content">
-            <img src="assets/image/github-mark-white.png" alt="A Github Icon" class="github-btn-img">
+            <img [src]="!isDark ? 'assets/image/github-dark.png' : 'assets/image/github.png'" alt="A Github Icon" class="github-btn-img"
+            title="Img Credit: https://iconscout.com/icon/github-163">
             <div class="github-btn-text">Github</div>
         </div>
     </a>
