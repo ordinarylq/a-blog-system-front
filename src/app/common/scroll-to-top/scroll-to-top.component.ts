@@ -25,6 +25,10 @@ export class ScrollToTopComponent {
     }
   }
 
+  /**
+   * 递归式地调用直到scrollTo的第二个对象的值小于1，此时浏览器会自动划到顶端，
+   * 因为默认像素取整数，小于1的时候认为不足一个像素。
+   */
   scrollToTop() {
     (function smoothscroll() {
       let currentScroll = document.documentElement.scrollTop || document.body.scrollTop;

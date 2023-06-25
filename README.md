@@ -20,7 +20,7 @@ Foreground
 - [ ] Feature: Rate Limit
 - [ ] Feature: RSS Support
 - [ ] Feature: Content Outline
-- [ ] Feature: Back To Top Btn
+- [X] Feature: Back To Top Btn
 - [X] Feature: Theme Support
 - [X] Feature: Light And Dark Mode Support
 - [ ] Improvement: Improve colors of both themes
