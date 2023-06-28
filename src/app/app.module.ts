@@ -21,6 +21,7 @@ import { ThemeManagerService } from './common/service/theme-manager.service';
 import { StorageService } from './common/service/storage.service';
 import { Observable } from 'rxjs';
 import { ScrollToTopComponent } from './common/scroll-to-top/scroll-to-top.component';
+import { TableOfContentsComponent } from './common/table-of-contents/table-of-contents.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { ScrollToTopComponent } from './common/scroll-to-top/scroll-to-top.compo
     ContentComponent,
     IndexComponent,
     ScrollToTopComponent,
+    TableOfContentsComponent,
     HighlightDirective
   ],
   imports: [

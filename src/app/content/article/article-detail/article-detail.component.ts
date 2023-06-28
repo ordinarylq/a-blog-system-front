@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { tap, mergeMap } from 'rxjs';
 import { FetchDataService } from 'src/app/common/service/fetch-data.service';
@@ -13,12 +13,19 @@ import { StorageService } from 'src/app/common/service/storage.service';
     templateUrl: './article-detail.component.html',
     styleUrls: ['./article-detail.component.scss']
 })
-export class ArticleDetailComponent implements OnInit {
+export class ArticleDetailComponent implements OnInit, AfterViewChecked {
 
     isLoadingResults = true;
     selectedArticleId!: number;
     articleItem?: ArticleModel;
     markedHtml!: string;
+
+    @ViewChild('htmlDocContent', { static: false })
+    private htmlDocContent?: ElementRef<HTMLDivElement>;
+
+    viewChecked = false;
+
+    headerElements: Element[] = []; 
 
     constructor(private route: ActivatedRoute, private fetchDataService: FetchDataService,
         private markdownConverter: MarkdownConverterService, private loadingService: LoadingService, private storageService: StorageService) { }
@@ -38,6 +45,22 @@ export class ArticleDetailComponent implements OnInit {
             });
     }
 
-
+    ngAfterViewChecked(): void {
+        if (!this.viewChecked && this.htmlDocContent) {
+            
+            // 获取该元素的所有h1-h2的直接子元素
+            const elementArray = Array.from(this.htmlDocContent.nativeElement.children);
+            let tableOfContents = elementArray.filter(
+                (element: Element) => {
+                    return element.nodeName.toLowerCase() === "h1" || element.nodeName.toLowerCase() === "h2";;
+                }
+            );
+            // 使用setTimeout()避免ExpressionChangedAfterItHasBeenCheckedError
+            setTimeout(() => {
+                this.headerElements = tableOfContents;
+                this.viewChecked = true;
+            });
+        }
+    }
 
 }

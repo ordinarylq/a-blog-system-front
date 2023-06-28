@@ -11,3 +11,15 @@
     height: 100%;
 }
 
+.doc-table-of-content {
+    top: 80px;
+    right: 40px;
+    position: fixed;
+    font-size: 13px;
+    width: 13%;
+    padding-left: 25px;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: column;
+}
+
