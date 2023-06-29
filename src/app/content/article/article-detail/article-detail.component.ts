@@ -7,6 +7,7 @@ import { HttpResponseInterface, PageInterface } from 'src/app/common/model/http-
 import { MarkdownConverterService } from 'src/app/common/service/markdown-convert.service';
 import { LoadingService } from 'src/app/common/service/loading.service';
 import { StorageService } from 'src/app/common/service/storage.service';
+import { SafeHtml } from '@angular/platform-browser';
 
 @Component({
     selector: 'app-article-detail',
@@ -18,7 +19,7 @@ export class ArticleDetailComponent implements OnInit, AfterViewChecked {
     isLoadingResults = true;
     selectedArticleId!: number;
     articleItem?: ArticleModel;
-    markedHtml!: string;
+    markedHtml!: SafeHtml;
 
     @ViewChild('htmlDocContent', { static: false })
     private htmlDocContent?: ElementRef<HTMLDivElement>;
@@ -28,7 +29,8 @@ export class ArticleDetailComponent implements OnInit, AfterViewChecked {
     headerElements: Element[] = []; 
 
     constructor(private route: ActivatedRoute, private fetchDataService: FetchDataService,
-        private markdownConverter: MarkdownConverterService, private loadingService: LoadingService, private storageService: StorageService) { }
+        private markdownConverter: MarkdownConverterService, private loadingService: LoadingService, 
+        private storageService: StorageService) { }
 
     ngOnInit(): void {
         this.loadingService.showLoading();

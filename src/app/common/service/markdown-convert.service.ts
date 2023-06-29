@@ -1,4 +1,5 @@
 import { Injectable, OnInit } from "@angular/core";
+import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import * as showdown from "showdown";
 import showdownHighlight from 'showdown-highlight';
 
@@ -10,7 +11,7 @@ export class MarkdownConverterService {
 
     converter: showdown.Converter;
 
-    constructor() {
+    constructor(private sanitizer: DomSanitizer) {
         showdown.setFlavor('github');
         this.converter = new showdown.Converter({
             extensions: [showdownHighlight({
@@ -20,6 +21,6 @@ export class MarkdownConverterService {
     }
     
     parseToHtml(text: string) {
-        return this.converter.makeHtml(text);
+        return this.sanitizer.bypassSecurityTrustHtml(this.converter.makeHtml(text));
     }
 }
