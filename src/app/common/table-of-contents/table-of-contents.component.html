@@ -1,8 +1,9 @@
 <div class="doc-toc-container">
     <div class="doc-toc-heading">Table of Contents</div>
     <nav aria-label="Overview Content Table of Contents">
-        <a href="xxxxxxxxxxx" *ngFor="let headerElement of headerElements" 
-        [ngClass]="{'docs-level-h2': headerElement.nodeName.toLowerCase() === 'h2'}" class="docs-link">{{headerElement.textContent}}</a>
+        <a *ngFor="let headerElement of headerElements" routerLink="./" [fragment]="headerElement.id" (click)="navigateToHeader(headerElement.id)"
+        [class.docs-level-h2]="headerElement.nodeName.toLowerCase() === 'h2'"
+        class="docs-link">{{headerElement.textContent}}</a>
     </nav>
 </div>
 
