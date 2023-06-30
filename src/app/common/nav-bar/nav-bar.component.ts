@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { FetchDataService } from '../service/fetch-data.service';
 import { HttpResponseInterface } from '../model/http-response.interface';
 import { ThemeManagerService } from '../service/theme-manager.service';
@@ -22,11 +22,13 @@ export class NavBarComponent implements OnInit {
   constructor(
     private fetchDataService: FetchDataService,
     private themeManager: ThemeManagerService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private cdr: ChangeDetectorRef
   ) { 
     this.storageService.changes.subscribe((change: {key: string;value: any;}) => {
       if(StorageService.selectedCategoryKey === change.key) {
         this.selectedCategoryIndex = Number(change.value);
+        this.cdr.detectChanges();
       } else if(StorageService.themeModeKey === change.key) {
         this.isDark = Boolean(change.value);
       }

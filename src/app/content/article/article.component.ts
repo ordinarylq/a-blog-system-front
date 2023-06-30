@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { LoadingService } from 'src/app/common/service/loading.service';
 
 @Component({
@@ -8,10 +8,12 @@ import { LoadingService } from 'src/app/common/service/loading.service';
 })
 export class ArticleComponent {
 
+  isLoading!: boolean;
+
   constructor(private loadingService: LoadingService) {}
 
   checkIfLoading() {
-    return this.loadingService.isLoadingResults;
+    this.isLoading = this.loadingService.isLoadingResults;
   }
 
 }
