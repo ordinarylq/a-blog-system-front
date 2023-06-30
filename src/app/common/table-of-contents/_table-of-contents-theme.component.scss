@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+    $color-config: mat.get-color-config($theme);
+    $primary-pallete: map.get($color-config, 'primary');
+
+    .doc-toc-container {
+        border-left: solid 4px mat.get-color-from-palette($primary-pallete, 'darker');
+    }
+    // todo 需要调整颜色
+    .doc-toc-container>nav>a.docs-link {
+        color: mat.get-color-from-palette($primary-pallete, 'darker');
+    
+    }
+    .doc-toc-container>nav>a.docs-link:hover {
+        color: mat.get-color-from-palette($primary-pallete, 900);
+    }
+}
+
+@mixin typography($theme) {
+
+}
+
+@mixin theme($theme) {
+    $color-config: mat.get-color-config($theme);
+    @if $color-config != null {
+        @include color($theme);
+    }
+
+    $typography-config: mat.get-typography-config($theme);
+    @if $typography-config != null {
+        @include typography($theme);
+    }
+}

@@ -5,6 +5,7 @@
 @use "../../app/content/article/article-theme.component" as article;
 @use "../../app/content/article/article-list/article-list-theme.component" as article-list;
 @use "../../app/content/article/article-detail/article-detail-theme.component" as article-detail;
+@use "../../app/common/table-of-contents/table-of-contents-theme.component" as table-of-contents;
 @use "./overlay-container" as overlay-container;
 @use "./markdown-code" as code;
 @use "./markdown-table" as table;
@@ -18,6 +19,7 @@
     @include article-list.theme($theme);
     @include article-detail.theme($theme);
     @include overlay-container.theme($theme);
+    @include table-of-contents.theme($theme);
     @include code.theme($theme);
     @include table.theme($theme);
 }
