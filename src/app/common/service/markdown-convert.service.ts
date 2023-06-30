@@ -25,7 +25,7 @@ export class MarkdownConverterService {
             filter: function(text: string, converter: showdown.Converter, options: showdown.ShowdownOptions) {
                 text = text.replace(/<h([12])[^>]*>(.*?)<\/h\1>/gi, (match, level, content) => {
                     const headerId = content.replace(/<\/?[^>]+(>|$)>/g, '').replace(/\s/g, '-');
-                    return `<h${level} id="${headerId}"><a title="Link to this heading" class="header-link" href="./"><i class="material-icons">link</i></a>${content}</h${level}>`;
+                    return `<h${level} id="${headerId}"><a title="Link to this heading" class="header-link"><i class="material-icons">link</i></a>${content}</h${level}>`;
                 })
                 return text;
             }

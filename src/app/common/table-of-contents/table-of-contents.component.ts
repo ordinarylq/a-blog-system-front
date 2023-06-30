@@ -22,7 +22,7 @@ export class TableOfContentsComponent {
     window.scrollTo({
       top: scrollPosition,
       behavior: 'smooth'
-    })
+    });
   }
 
 }

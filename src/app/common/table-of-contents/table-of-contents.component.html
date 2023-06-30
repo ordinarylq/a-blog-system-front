@@ -3,7 +3,7 @@
     <nav aria-label="Overview Content Table of Contents">
         <a *ngFor="let headerElement of headerElements" routerLink="./" [fragment]="headerElement.id" (click)="navigateToHeader(headerElement.id)"
         [class.docs-level-h2]="headerElement.nodeName.toLowerCase() === 'h2'"
-        class="docs-link">{{headerElement.textContent}}</a>
+        class="docs-link">{{headerElement.childNodes[1].textContent}}</a>
     </nav>
 </div>
 
