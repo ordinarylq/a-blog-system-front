@@ -67,7 +67,9 @@ export class ArticleDetailComponent implements OnInit {
                     // 给header-link的父标签h1,h2设置点击事件
                     const elements = this.elementRef.nativeElement.querySelectorAll('.header-link');
                     elements.forEach((element: Element) => {
-                        this.renderer.listen(element, 'click', () => {
+                        this.renderer.listen(element, 'click', (event) => {
+                            // 禁用a标签的默认行为
+                            event.preventDefault();
                             this.onHeaderLinkClick(element);
                         })
                     });
@@ -85,7 +87,7 @@ export class ArticleDetailComponent implements OnInit {
         window.scrollTo({
             top: scrollPosition,
             behavior: 'smooth'
-        })
+          });
     }
 
 }
