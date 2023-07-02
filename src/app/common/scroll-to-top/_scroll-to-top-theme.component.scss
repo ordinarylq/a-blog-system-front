@@ -2,13 +2,15 @@
 @use '@angular/material' as mat;
 
 @mixin color($theme) {
-    // 获取theme的color config
     $color-config: mat.get-color-config($theme);
-    // 获取primary pallete
     $primary-pallete: map.get($color-config, 'primary');
     $accent-pallete: map.get($color-config, 'accent');
 
+    div.scroll-to-top button.scroll-btn {
+        background-color: mat.get-color-from-palette($primary-pallete, 'default');
+    }
 }
+
 
 @mixin typography($theme) {}
 

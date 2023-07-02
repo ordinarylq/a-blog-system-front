@@ -15,11 +15,7 @@
     }
     
     .article-content tr:nth-child(2n) {
-        @if map.get($color-config, 'is-dark') {
-            background-color: mat.get-color-from-palette($primary-pallete, 'default');
-        } @else {
-            background-color: mat.get-color-from-palette($primary-pallete, 'default');
-        }
+        background-color: rgba(mat.get-color-from-palette($primary-pallete, 'lighter'), 0.2);
     }
 }
 

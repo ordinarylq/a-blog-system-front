@@ -6,6 +6,7 @@
 @use "../../app/content/article/article-list/article-list-theme.component" as article-list;
 @use "../../app/content/article/article-detail/article-detail-theme.component" as article-detail;
 @use "../../app/common/table-of-contents/table-of-contents-theme.component" as table-of-contents;
+@use "../../app/common/scroll-to-top/scroll-to-top-theme.component" as scroll-to-top;
 @use "./overlay-container" as overlay-container;
 @use "./markdown-code" as code;
 @use "./markdown-table" as table;
@@ -20,6 +21,7 @@
     @include article-detail.theme($theme);
     @include overlay-container.theme($theme);
     @include table-of-contents.theme($theme);
+    @include scroll-to-top.theme($theme);
     @include code.theme($theme);
     @include table.theme($theme);
 }

@@ -37,7 +37,7 @@
         *ngFor="let articleItem of pageItem?.records; last as last;" role="article list item" [activated]="true"
         class="article-item">
         <mat-icon matListItemIcon>article</mat-icon>
-        <div matListItemTitle> {{articleItem.title}} </div>
+        <div matListItemTitle class="title"> {{articleItem.title}} </div>
         <div matListItemLine class="subline"> {{articleItem.subtitle}} </div>
         <div matListItemLine class="subline">
             Create Time: {{articleItem.createTime | date}}

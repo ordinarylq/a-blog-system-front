@@ -6,64 +6,25 @@
     $primary-pallete: map.get($color-config, 'primary');
     $accent-pallete: map.get($color-config, 'accent');
 
-    // table
-    .mat-mdc-row:hover .mat-mdc-cell {
-        @if map.get($color-config, 'is-dark') {
-            background-color: mat.get-color-from-palette($accent-pallete, 900);
-            color: mat.get-color-from-palette($accent-pallete, '900-contrast');
-        } @else {
-            background-color: mat.get-color-from-palette($accent-pallete, 100);
-            color: mat.get-color-from-palette($accent-pallete, '100-contrast');
-        }
-        
-    }
-
     .table-container .table {
-        @if map.get($color-config, 'is-dark') {
-            background: mat.get-color-from-palette($primary-pallete, 'darker');
-            color: mat.get-color-from-palette($primary-pallete, 'darker-contrast');
-        } @else {
-            background: mat.get-color-from-palette($primary-pallete, 'lighter');
-            color: mat.get-color-from-palette($primary-pallete, 'lighter-contrast');
-        }
-        
+        background-color: inherit;
     }
 
     // list
-    .article-list .article-item {
-        @if map.get($color-config, 'is-dark') {
-            background-color: mat.get-color-from-palette($primary-pallete, 'darker');
-            color: mat.get-color-from-palette($primary-pallete, 'darker-contrast');
-        } @else {
-            background-color: mat.get-color-from-palette($primary-pallete, 'lighter');
-            color: mat.get-color-from-palette($primary-pallete, 'lighter-contrast');
-        }
+    .article-list a.article-item div.title[matListItemTitle] {
+        color: inherit;
     }
 
     .article-list .article-item:hover {
-        @if map.get($color-config, 'is-dark') {
-            background-color: mat.get-color-from-palette($accent-pallete, 900);
-            color: mat.get-color-from-palette($accent-pallete, '900-contrast');
-        } @else {
-            background-color: mat.get-color-from-palette($accent-pallete, 100);
-            color: mat.get-color-from-palette($accent-pallete, '100-contrast');
-        }
-        
+        background-color: rgba(mat.get-color-from-palette($primary-pallete, 'lighter'), 0.2);
     }
-    // list subtitle & create time
-    .article-list .article-item .subline {
-        @if map.get($color-config, 'is-dark') {
-            color: mat.get-color-from-palette($primary-pallete, 'darker-contrast');
-        } @else {
-            color: mat.get-color-from-palette($primary-pallete, 'lighter-contrast');
-        }
-    }
+
     .article-paginator {
-        @if map.get($color-config, 'is-dark') {
-            background-color: mat.get-color-from-palette($primary-pallete, 'darker');
-        } @else {
-            background-color: mat.get-color-from-palette($primary-pallete, 'lighter');
-        }
+        background-color: inherit;
+    }
+
+    button.view-switch-fab {
+        background-color: mat.get-color-from-palette($primary-pallete, 'default');
     }
 }
 

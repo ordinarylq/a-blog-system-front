@@ -4,13 +4,14 @@
 @mixin color($theme) {
     $color-config: mat.get-color-config($theme);
     $primary-pallete: map.get($color-config, 'primary');
+    $accent-pallete: map.get($color-config, 'accent');
 
-    .article-content a {
-        color: mat.get-color-from-palette($primary-pallete, 'default');
+    .article-content a {   
+        color: mat.get-color-from-palette($accent-pallete, 500);
     }
 
     a.header-link{
-        color: mat.get-color-from-palette($primary-pallete, 'default');
+        color: mat.get-color-from-palette($accent-pallete, 500);
         display: inline-flex;
         text-decoration: none;
         margin-left: -40px;
