@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { LoadingService } from 'src/app/common/service/loading.service';
 
 @Component({
@@ -6,14 +6,18 @@ import { LoadingService } from 'src/app/common/service/loading.service';
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss']
 })
-export class ArticleComponent {
+export class ArticleComponent implements OnInit {
 
   isLoading!: boolean;
 
-  constructor(private loadingService: LoadingService) {}
-
-  checkIfLoading() {
-    this.isLoading = this.loadingService.isLoadingResults;
+  constructor(private loadingService: LoadingService) { 
+    this.loadingService.loadingEvent.subscribe((data) => {
+      console.log('结果：' + data);
+      this.isLoading = data;
+    });
+  }
+  ngOnInit(): void {
+    
   }
 
 }

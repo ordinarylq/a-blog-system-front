@@ -33,10 +33,13 @@ export class ArticleDetailComponent implements OnInit {
         private storageService: StorageService, private renderer: Renderer2, private elementRef: ElementRef, private router: Router) { }
 
     ngOnInit(): void {
-        this.loadingService.showLoading();
+        
         this.route.params
             .pipe(
-                tap((param: any) => this.selectedArticleId = param.articleId),
+                tap((param: any) => {
+                    this.loadingService.showLoading();
+                    this.selectedArticleId = param.articleId;
+                }),
                 mergeMap((param: any) => this.fetchDataService.getArticleItemById(param.articleId))
             )
             .subscribe((response: HttpResponseInterface) => {

@@ -27,10 +27,12 @@ export class ArticleListComponent implements OnInit {
     private router: Router, private loadingService: LoadingService) { }
 
   ngOnInit(): void {
-    this.loadingService.showLoading();
     this.route.params
       .pipe(
-        tap((param: any) => this.selectedCategoryId = param.categoryId),
+        tap((param: any) => {
+          this.loadingService.showLoading();
+          this.selectedCategoryId = param.categoryId;
+        }),
         mergeMap((param: any) => this.fetchDataService.getArticleListByCategory(param.categoryId, this.pageNum, this.pageSize))
       )
       .subscribe((response: HttpResponseInterface) => {

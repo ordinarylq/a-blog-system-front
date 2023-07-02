@@ -1,16 +1,16 @@
-import { Injectable } from "@angular/core";
+import { EventEmitter, Injectable } from "@angular/core";
 
 @Injectable()
 export class LoadingService {
 
-    isLoadingResults = true;
+    loadingEvent = new EventEmitter<boolean>();
 
     showLoading() {
-        this.isLoadingResults = true;
+        this.loadingEvent.emit(true);
     }
 
     hideLoading() {
-        this.isLoadingResults = false;
+        this.loadingEvent.emit(false);
     }
 
 }
