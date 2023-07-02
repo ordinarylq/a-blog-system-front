@@ -10,14 +10,14 @@ export class ArticleComponent implements OnInit {
 
   isLoading!: boolean;
 
-  constructor(private loadingService: LoadingService) { 
-    this.loadingService.loadingEvent.subscribe((data) => {
-      console.log('结果：' + data);
-      this.isLoading = data;
-    });
+  constructor(private loadingService: LoadingService, private cdr: ChangeDetectorRef) { 
+    
   }
   ngOnInit(): void {
-    
+    this.loadingService.loadingEvent.subscribe((data) => {
+      this.isLoading = data;
+      this.cdr.detectChanges();
+    });
   }
 
 }
