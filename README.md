@@ -7,31 +7,32 @@ This is a frontend project of [A Blog System](https://github.com/ordinarylq/a-bl
 todo
 
 ## TODO
-Foreground
+First Stage-Basic Outline Build
 - [X] Angular development environment build
 - [X] Basic view page
 - [X] Article list page
 - [X] Article detail page with markdown
 - [X] Index Page ( Need to think what to show though )
 - [X] CSS Optimization and other small stuff
-- [ ] Feature: Get article list from article tag 
-- [ ] Feature: Article search
-- [ ] Feature: Cache Control
-- [ ] Feature: Rate Limit
-- [ ] Feature: RSS Support
 - [X] Feature: Content Outline
 - [X] Feature: Back To Top Btn
 - [X] Feature: Theme Support
 - [X] Feature: Light And Dark Mode Support
 - [X] Improvement: Improve colors of both themes
-- [ ] ...
+- [ ] Feature: Add profile at index page
 
+Second Stage-Add Special Features
+- [ ] Feature: Get article list from article tag 
+- [ ] Feature: Article search
+- [ ] Feature: Cache Control
+- [ ] Feature: Rate Limit
+- [ ] Feature: RSS Support
 
-Background
+Third Stage-Add Manage page
+- [ ] Article Manage Page
 - [ ] Authorization
 - [ ] Authentication
-- [ ] Article Manage Page
-- [ ] ...
+- [ ] Sync to Notion, HashNode
 
 ## Third Party Library
 * [showdownjs](https://github.com/showdownjs/showdown)
