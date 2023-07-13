@@ -41,6 +41,10 @@
             ],
             "scripts": [
               "node_modules/showdown/dist/showdown.min.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "showdown",
+              "showdown-highlight"
             ]
           },
           "configurations": {
