@@ -9,7 +9,7 @@ import { StorageService } from "./storage.service";
  */
 @Injectable()
 export class FetchDataService {
-    static BASE_URL = 'http://52.168.183.11:9898/';
+    static BASE_URL = '/';
 
     static CATEGORY_URL = FetchDataService.BASE_URL + 'api/categories';
 
