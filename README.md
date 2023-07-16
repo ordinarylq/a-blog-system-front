@@ -19,7 +19,8 @@ First Stage-Basic Outline Build
 - [X] Feature: Theme Support
 - [X] Feature: Light And Dark Mode Support
 - [X] Improvement: Improve colors of both themes
-- [ ] Feature: Add profile at index page
+- [X] Feature: Add profile at index page
+- [X] Feature: Add CI/CD
 
 Second Stage-Add Special Features
 - [ ] Feature: Get article list from article tag 
