@@ -25,7 +25,7 @@ jobs:
         uses: garygrossgarten/github-action-scp@release
         with: 
           local: dist/a-blog-system-front/
-          remote: ${{ env.DEPLOY_FILE_PATH }}
+          remote: ${{ vars.DEPLOY_FILE_PATH }}
           host: ${{ secrets.BANWAGON_VM_HOST }}
           port: ${{ secrets.BANWAGON_VM_PORT }}
           username: ${{ secrets.BANWAGON_VM_USERNAME }}
