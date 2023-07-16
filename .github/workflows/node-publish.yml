@@ -29,5 +29,5 @@ jobs:
           host: ${{ secrets.BANWAGON_VM_HOST }}
           port: ${{ secrets.BANWAGON_VM_PORT }}
           username: ${{ secrets.BANWAGON_VM_USERNAME }}
-          password: ${{ BANWAGON_VM_PASSWORD }}
+          password: ${{ secrets.BANWAGON_VM_PASSWORD }}
       
