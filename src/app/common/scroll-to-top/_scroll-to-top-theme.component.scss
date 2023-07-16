@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+    $color-config: mat.get-color-config($theme);
+    $primary-pallete: map.get($color-config, 'primary');
+    $accent-pallete: map.get($color-config, 'accent');
+
+    div.scroll-to-top button.scroll-btn {
+        background-color: mat.get-color-from-palette($primary-pallete, 'default');
+    }
+}
+
+
+@mixin typography($theme) {}
+
+@mixin theme($theme) {
+    $color-config: mat.get-color-config($theme);
+    @if $color-config != null {
+        @include color($theme);
+    }
+
+    $typography-config: mat.get-typography-config($theme);
+    @if $typography-config != null {
+        @include typography($theme);
+    }
+}

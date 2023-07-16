@@ -1,0 +1,29 @@
+.article-title {
+    padding: 10px 0;
+}
+
+.article-subtitle {
+    padding-bottom: 10px;
+}
+
+.article-content {
+    padding: 8px 0;
+    height: 100%;
+}
+
+.doc-table-of-content {
+    top: 80px;
+    right: 40px;
+    position: fixed;
+    font-size: 13px;
+    width: 13%;
+    padding-left: 25px;
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.article-content .header-link{
+    color: red;
+}
+

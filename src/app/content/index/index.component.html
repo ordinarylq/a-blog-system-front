@@ -1,0 +1,29 @@
+<div class="index-container">
+    <div class="my-info-container" [@zoomIn]>
+        <div class="profile-container">
+            <div class="profile-title">About Me...</div>
+            <div class="profile-items">
+                <span class="profile-item" *ngFor="let slogan of myProfile; let i=index">
+                    {{slogan}}
+                    <span *ngIf="i + 1 < myProfile.length">,&nbsp;</span>
+                </span>
+            </div>
+        </div>
+        <div class="interest-container">
+            <div class="in-context-title">Interested in...</div>
+            <ul class="interests-items">
+                <li class="interest-item" *ngFor="let item of techWithInterests">
+                    {{item}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <a class="github-button" mat-raised-button href="https://github.com/ordinarylq" target="_blank"
+        matTooltip="Find me on Github" color="accent">
+        <div class="github-button-content">
+            <img [src]="!isDark ? 'assets/image/github-dark.png' : 'assets/image/github.png'" alt="A Github Icon" class="github-btn-img"
+            title="Img Credit: https://iconscout.com/icon/github-163">
+            <div class="github-btn-text">Github</div>
+        </div>
+    </a>
+</div>

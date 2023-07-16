@@ -1,0 +1,10 @@
+<div *ngIf="articleItem" >
+    <div class="article-title">{{articleItem.title}}</div>
+    <div class="article-subtitle">{{articleItem.subtitle}}</div>
+    <div class="article-info">CreatedOn: {{articleItem.createTime | date}}</div>
+    <mat-divider></mat-divider>
+    <div #htmlDocContent class="article-content" [innerHTML]="markedHtml">
+    </div>
+</div>
+<app-scroll-to-top></app-scroll-to-top>
+<app-table-of-contents class="doc-table-of-content" [headerElements]="headerElements"></app-table-of-contents>

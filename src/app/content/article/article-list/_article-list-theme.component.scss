@@ -1,0 +1,43 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {
+    $color-config: mat.get-color-config($theme);
+    $primary-pallete: map.get($color-config, 'primary');
+    $accent-pallete: map.get($color-config, 'accent');
+
+    .table-container .table {
+        background-color: inherit;
+    }
+
+    // list
+    .article-list a.article-item div.title[matListItemTitle] {
+        color: inherit;
+    }
+
+    .article-list .article-item:hover {
+        background-color: rgba(mat.get-color-from-palette($primary-pallete, 'lighter'), 0.2);
+    }
+
+    .article-paginator {
+        background-color: inherit;
+    }
+
+    button.view-switch-fab {
+        background-color: mat.get-color-from-palette($primary-pallete, 'default');
+    }
+}
+
+@mixin typography($theme) {}
+
+@mixin theme($theme) {
+    $color-config: mat.get-color-config($theme);
+    @if $color-config != null {
+        @include color($theme);
+    }
+
+    $typography-config: mat.get-typography-config($theme);
+    @if $typography-config != null {
+        @include typography($theme);
+    }
+}

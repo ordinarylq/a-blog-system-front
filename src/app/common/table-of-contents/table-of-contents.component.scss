@@ -1,0 +1,37 @@
+.doc-toc-container {
+    width: 100%;
+    padding: 5px 0 10px 10px;
+    display: block;
+}
+
+.doc-toc-heading {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.doc-toc-heading>nav {
+    display: block;
+}
+
+
+.doc-toc-container .docs-level-h2 {
+    margin-left: 20px;
+}
+nav>a{
+    line-height: 16px;
+    margin: 8px 0 0 0;
+    position: relative;
+    text-decoration: none;
+    display: block;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+}
+
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}

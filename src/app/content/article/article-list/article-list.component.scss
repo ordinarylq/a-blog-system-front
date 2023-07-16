@@ -1,0 +1,22 @@
+// table view
+.table-container {
+  position: relative;
+  overflow: auto;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+// list view
+.article-item:hover {
+  cursor: pointer;
+}
+
+.view-switch-fab {
+  position: fixed;
+  right: 30px;
+  bottom: 7vh;
+}

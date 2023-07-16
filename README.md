@@ -1,27 +1,55 @@
-# ABlogSystemFront
+# A Blog System Frontend Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+## What is this project?
+This is a frontend project of [A Blog System](https://github.com/ordinarylq/a-blog-system) which is my first side project for blogging purpose. Using Angular with Angular Material. 
 
-## Development server
+![A simple Arc picture]()  
+todo
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## TODO
+First Stage-Basic Outline Build
+- [X] Angular development environment build
+- [X] Basic view page
+- [X] Article list page
+- [X] Article detail page with markdown
+- [X] Index Page ( Need to think what to show though )
+- [X] CSS Optimization and other small stuff
+- [X] Feature: Content Outline
+- [X] Feature: Back To Top Btn
+- [X] Feature: Theme Support
+- [X] Feature: Light And Dark Mode Support
+- [X] Improvement: Improve colors of both themes
+- [X] Feature: Add profile at index page
+- [X] Feature: Add CI/CD
 
-## Code scaffolding
+Second Stage-Add Special Features
+- [ ] Feature: Get article list from article tag 
+- [ ] Feature: Article search
+- [ ] Feature: Cache Control
+- [ ] Feature: Rate Limit
+- [ ] Feature: RSS Support
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Third Stage-Add Manage page
+- [ ] Article Manage Page
+- [ ] Authorization
+- [ ] Authentication
+- [ ] Sync to Notion, HashNode
 
-## Build
+## Third Party Library
+* [showdownjs](https://github.com/showdownjs/showdown)
+* [highlightjs](https://github.com/highlightjs/highlight.js)
+* [showdown-highlight extension](https://github.com/Bloggify/showdown-highlight)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Getting Started
+Prerequsites: 
+In order to run this project locally, you need to review the following things: 
+* The backend project has running locally (Of course with db connecting);
+* Node.js;
+* npm package manager;  
 
-## Running unit tests
+More detailes are explained in Angular offcial site. Check [here](https://angular.io/guide/setup-local#prerequisites) to read.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## License
+Under Apache License 2.0.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

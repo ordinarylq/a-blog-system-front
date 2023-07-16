@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" role="heading" class="mat-elevation-z6 nav-bar">
+    <button mat-icon-button aria-label="menu icon">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <mat-divider [inset]="true" role="separator"></mat-divider>
+
+    <a routerLink="/" aria-label="A Blog System">
+        <img [src]=" !isDark ? 'assets/image/logo-dark.png' : 'assets/image/logo.png'" alt="logo" class="logo" (click)="selectedNoneCategory()">
+    </a>
+
+    <span class="spacer"></span>
+
+    <a *ngFor="let category of categories; let i = index;" 
+    [routerLink]="'article/list/' + category.id" mat-button class="nav-item"
+    [ngClass]="{'nav-item-selected': selectedCategoryIndex === category.id}">
+        <span>{{ category.categoryName }}</span>
+    </a>
+
+    <button mat-icon-button aria-label="switch theme mode icon" (click)="toggleDarkTheme()" 
+    [title]=" isDark ? 'Switch to light mode' : 'Switch to dark mode' ">
+        <mat-icon>{{ isDark ? 'light_mode' : 'dark_mode'}}</mat-icon>
+    </button>
+</mat-toolbar>

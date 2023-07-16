@@ -1,0 +1,56 @@
+.index-container {
+    text-align: center;
+}
+
+.my-info-container {
+    padding-top: 7%;
+    padding-bottom: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px;
+    .profile-title {
+        padding-bottom: 16px;
+    }
+}
+
+.interest-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px;
+    .in-context-title{
+        padding-top: 25px;
+    }
+    .interests-items {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-left: 15px;
+    }
+}
+
+
+// github button
+.github-button {
+    text-decoration: none;
+    padding: 5px;
+
+    .github-button-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.github-btn-img {
+    width: 25px;
+    margin: 5px;
+    display: block;
+}

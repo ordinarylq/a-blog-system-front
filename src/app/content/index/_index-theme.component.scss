@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin color($theme) {}
+
+@mixin typography($theme) {
+    // TODO: Add typography support
+    // using typography does not work.
+    .slogan-sentence {
+        line-height: 3em;
+        font-size: large;
+        font-family: 'Poppins', sans-serif;
+        width: auto;
+    }
+}
+
+@mixin theme($theme) {
+    $color-config: mat.get-color-config($theme);
+    @if $color-config != null {
+        @include color($theme);
+    }
+
+    $typography-config: mat.get-typography-config($theme);
+    @if $typography-config != null {
+        @include typography($theme);
+    }
+}

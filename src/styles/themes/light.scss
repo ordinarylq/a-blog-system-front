@@ -1,0 +1,17 @@
+@use '@angular/material' as mat;
+
+$my-light-primary: mat.define-palette(mat.$light-green-palette, 300);
+$my-light-accent: mat.define-palette(mat.$light-green-palette, 300);
+$my-light-warn: mat.define-palette(mat.$orange-palette);
+$my-typography: mat.define-typography-config();
+
+$my-light-theme: mat.define-light-theme(
+    (
+        color: (
+            primary: $my-light-primary,
+            accent: $my-light-accent,
+            warn: $my-light-warn
+        ),
+        typography: $my-typography
+    )
+);

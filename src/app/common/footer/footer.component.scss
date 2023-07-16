@@ -1,0 +1,30 @@
+.footer {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 86px;
+}
+
+.footer-list {
+    align-items: center;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 8px;
+}
+
+.footer-logo {
+    flex: 1;
+    display: flex;
+}
+
+img {
+    height: 50px;
+}
+.footer-copyright a{
+    text-decoration: none;
+}
+.footer-copyright a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
