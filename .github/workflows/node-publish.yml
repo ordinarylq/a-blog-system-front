@@ -21,6 +21,14 @@ jobs:
         run: npm ci
       - name: Npm Build
         run: npm run build --if-present
+      - name: Remove files from target
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: rm -rf ${{ vars.DEPLOY_FILE_PATH }}/*
+          host: ${{ secrets.BANWAGON_VM_HOST }}
+          username: ${{ secrets.BANWAGON_VM_USERNAME }}
+          password: ${{ secrets.BANWAGON_VM_PASSWORD }}
+          port: ${{ secrets.BANWAGON_VM_PORT }}
       - name: Copy dist to production
         uses: garygrossgarten/github-action-scp@release
         with: 
